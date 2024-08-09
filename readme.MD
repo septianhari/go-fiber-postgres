@@ -24,8 +24,7 @@ Ini adalah proyek sederhana yang menggunakan [Golang](https://golang.org/), [Fib
 
 1. Clone repositori ini:
 
-   git clone https://github.com/username/repo-name.git
-   cd repo-name
+   git clone https://github.com/septianhari/go-fiber-postgres
 
 2. Instal dependensi:
    
