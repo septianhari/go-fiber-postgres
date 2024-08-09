@@ -46,8 +46,8 @@ Ini adalah proyek sederhana yang menggunakan [Golang](https://golang.org/), [Fib
    ```bash
    func MigrateBooks(db *gorm.DB) error {
     // Implementasikan migrasi model di sini
-    return db.AutoMigrate(&Books{})
-}
+    return db.AutoMigrate(&Books{}) 
+   }
 
 
 ## Menjalankan Aplikasi
