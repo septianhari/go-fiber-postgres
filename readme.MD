@@ -1,5 +1,3 @@
-markdown
-Copy code
 # Golang Fiber PostgreSQL CRUD API
 
 Ini adalah proyek sederhana yang menggunakan [Golang](https://golang.org/), [Fiber](https://gofiber.io/), dan [PostgreSQL](https://www.postgresql.org/) untuk membuat RESTful API sederhana dengan operasi CRUD (Create, Read, Update, Delete) untuk buku.
@@ -28,58 +26,54 @@ Ini adalah proyek sederhana yang menggunakan [Golang](https://golang.org/), [Fib
 
    ```bash
    git clone https://github.com/septianhari/go-fiber-postgres
-Instal dependensi:
 
-bash
-Copy code
-go mod tidy
-Buat file .env di direktori proyek Anda dan tambahkan konfigurasi database PostgreSQL:
+2. Instal dependensi:
 
-env
-Copy code
-DB_HOST=localhost
-DB_USER=your_username
-DB_PASS=your_password
-DB_NAME=your_database_name
-DB_PORT=5432
-Migrasikan database:
+   ```bash
+   go mod tidy
 
-Model Books diharapkan sudah didefinisikan dalam package models. Fungsi MigrateBooks di models akan digunakan untuk memigrasi database.
+3. Buat file .env di direktori proyek Anda dan tambahkan konfigurasi database PostgreSQL:
 
-go
-Copy code
-func MigrateBooks(db *gorm.DB) error {
+   ```bash
+   DB_HOST=localhost
+   DB_USER=your_username
+   DB_PASS=your_password
+   DB_NAME=your_database_name
+   DB_PORT=5432
+
+4. Migrasikan database. Model Books diharapkan sudah didefinisikan dalam package models. Fungsi MigrateBooks di models akan digunakan untuk memigrasi database:
+
+   ```bash
+   func MigrateBooks(db *gorm.DB) error {
     // Implementasikan migrasi model di sini
     return db.AutoMigrate(&Books{})
 }
-Menjalankan Aplikasi
-Jalankan aplikasi dengan perintah berikut:
 
-bash
-Copy code
-go run main.go
-Aplikasi akan berjalan di http://localhost:8080.
 
-API Endpoint
-POST /api/create_book
+## Menjalankan Aplikasi
 
-Menambahkan buku baru.
+1. Jalankan aplikasi dengan perintah berikut:
 
-Contoh Request Body:
+   ```bash
+   go run main.go
 
-json
-Copy code
-{
+2. Aplikasi akan berjalan di http://localhost:8080.
+
+
+## API Endpoint
+
+- POST /api/create_book: Menambahkan buku baru. Contoh Request Body:
+
+   ```bash
+   {
   "author": "Author Name",
   "title": "Book Title",
   "publisher": "Publisher Name"
 }
-GET /api/get_books
 
-Mendapatkan semua data buku.
-GET /api/get_book/
 
-Mendapatkan buku berdasarkan ID.
-DELETE /api/delete_book/
+- GET /api/get_books: Mendapatkan semua data buku.
 
-Menghapus buku berdasarkan ID.
+- GET /api/get_book/ : Mendapatkan buku berdasarkan ID.
+
+- DELETE /api/delete_book/ : Menghapus buku berdasarkan ID.
